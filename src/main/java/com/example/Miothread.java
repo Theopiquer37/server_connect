@@ -43,7 +43,27 @@ public class Miothread extends Thread {
             out.println("Content-Length:" + body.length());
             out.println("");
             out.println(body);
-            } else {
+            } 
+            else if (path.equals("/Abati")){
+                System.out.println("la tua richiesta è terminata, ora ti rispondo");
+                String body = "<html><body><h1>Abati oggi sta perdendo i capelli</h1></body></html>";
+                out.println("HTTP/1.1 200 OK");
+                out.println("Content-Type: text/html");
+                out.println("Server: Cecio");
+                out.println("Content-Length:" + body.length());
+                out.println("");
+                out.println(body);
+            }else if (path.equals("/Betti")){
+                System.out.println("la tua richiesta è terminata, ora ti rispondo");
+                String body = "<html><body><h1>Matteo è una favola</h1></body></html>";
+                out.println("HTTP/1.1 301 Moved Permanently");
+                redirected: out.println("Location: /Michele");
+                out.println("Content-Type: text/html");
+                out.println("Server: Cecio");
+                out.println("Content-Length:" + body.length());
+                out.println("");
+                out.println(body);
+            }else {
                 out.println("HTTP/1.1 404 Not Found");
                 out.println("Content-Type: text/html");
                 out.println("Server: Cecio");

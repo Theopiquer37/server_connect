@@ -33,6 +33,23 @@ public class Miothread extends Thread {
         try {
             String firstline = in.readLine();
             System.out.println(firstline);
+            String path = firstline.split(" ")[1];
+            if (path.equals("/Michele")){
+            System.out.println("la tua richiesta è terminata, ora ti rispondo");
+            String body = "<html><body><h1>Michele oggi ha il capo cecio</h1></body></html>";
+            out.println("HTTP/1.1 200 OK");
+            out.println("Content-Type: text/html");
+            out.println("Server: Cecio");
+            out.println("Content-Length:" + body.length());
+            out.println("");
+            out.println(body);
+            } else {
+                out.println("HTTP/1.1 404 Not Found");
+                out.println("Content-Type: text/html");
+                out.println("Server: Cecio");
+                out.println("");
+                out.println("pagina non trovata");
+            }
             String h; 
             do {
                 h = in.readLine();
